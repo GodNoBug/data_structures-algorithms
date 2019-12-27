@@ -2,7 +2,10 @@ package hsah;
 
 
 import java.util.Scanner;
-
+//  散列表（Hash table，也叫哈希表）
+//      是根据关键码值(Key value)而直接进行访问的数据结构。
+//      也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。
+//      这个映射函数叫做散列函数，存放记录的数组叫做散列表。
 public class HashTabDemo {
     public static void main(String[] args) {
         //创建哈希表
@@ -167,21 +170,19 @@ class EmpLinkList {
             System.out.println("该链表为空");
             return ;
         }
-        if (head.id==id){
-            head = head.next;
-        }
+
 
         Emp curEmp = head;
-        //TODO
+        //TODO 链表删除
 
     }
 }
 
 //表示一个雇员
 class Emp {
-    public int id;
-    public String name;
-    public Emp next;    //默认为空
+    public int id;       // 员工id
+    public String name;  // 员工名
+    public Emp next;     // 默认为空
 
     public Emp(int id, String name) {
         this.id = id;
