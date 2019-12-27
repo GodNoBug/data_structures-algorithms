@@ -21,9 +21,12 @@ public class EightQueen {
 
     public static void main(String[] args) {
         EightQueen queen =new EightQueen();
-        queen.check(0);
+        queen.check();
     }
 
+    public void check(){
+        this.check(0);
+    }
     //将最后结果数组打印[八皇后位置]出来
     private void print() {
         for (int i = 0; i < this.array.length; i++) {
