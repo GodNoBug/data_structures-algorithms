@@ -2,7 +2,9 @@ package arithmetic.sort;
 
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 
 //选择排序
@@ -27,9 +29,21 @@ public class SelectSort {
         sort(arr);
         System.out.println(Arrays.toString(arr));
     }
+    @Test
+    public void test2(){
+        int[] arr = new int[80000];
+        for (int i = 0; i < 80000; i++) {
+            arr[i] = (int) (Math.random() * 8000000);//生成一个[0~8000000)数
+        }
+        String begin = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+        System.out.println("排序前的时间是=" + begin);
+        sort(arr);
+        String end = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+        System.out.println("排序后的时间是=" + end);
+    }
 
     //                 i  j=i+1
-    //                 ↓  ↓
+    //                 ↓  ↓  ↓
     //    int[] arr = {8, 3, 2, 1, 7, 4, 6, 5}
     private void sort(int[] arr) {
         // 8个数字确定7个数就算排序完了,arr.length-1

@@ -98,17 +98,18 @@ class BinaryTree {
             return null;
         }
     }
+
     //删除
-    public void deleteNode(int no){
-        if (this.root!=null){
+    public void deleteNode(int no) {
+        if (this.root != null) {
             //如果只有一个root节点,这里立即判断root是否就是要删除的节点
-            if (root.getNo()==no){
-                this.root=null;
-            }else {
+            if (root.getNo() == no) {
+                this.root = null;
+            } else {
                 //递归删除
                 this.root.deleteNode(no);
             }
-        }else {
+        } else {
             System.out.println("空树,不能删除");
         }
     }
@@ -129,7 +130,7 @@ class HeroNode {
     }
 
     /**
-     * 遍历
+     * 遍历 注意this在递归中代表不同的当前对象
      */
 
     // 前序遍历
@@ -174,9 +175,11 @@ class HeroNode {
      * 查找
      */
     // 前序遍历查找
+    // 1.先判断当前节点no是否等于要查找的,如果相等返回当前节点
+    // 2.如果不相等,则判断当前节点的左子节点是否为空,如果不为空则递归前序查找
+    //   如果左递归前序查找,找到节点,则返回,否则继续判断,当前节点的右子结点是否为空
+    // 3.如果不为空,则继续向右递归前序查找
     public HeroNode preOrderSearch(int no) {
-        System.out.println("进入前序遍历");
-
         if (this.no == no) {
             return this;
         }
@@ -186,7 +189,7 @@ class HeroNode {
         if (this.left != null) {
             resNode = this.left.preOrderSearch(no);
         }
-        if (resNode != null) { //说明我们左子树上找到了
+        if (resNode != null) { //说明我们左子树上找到了,return
             return resNode;
         }
         // 1.如果左递归前序查找找到了节点则返回,否则继续判断当前节点的右子节点是否为空,
@@ -198,6 +201,9 @@ class HeroNode {
     }
 
     // 中序遍历查找
+    // 1.先判断当前节点是否为空,如果不为空,则递归前序查找,如果找到则返回.
+    // 2.如果没有找到,就和当前节点比较,如果是则返回当前节点,否则继续右递归查找
+    // 3.如果右递归中序查找,找到就返回,否则返回null
     public HeroNode infixOrderSearch(int no) {
         HeroNode resNode = null;
         if (this.left != null) {
@@ -218,6 +224,10 @@ class HeroNode {
     }
 
     // 后序遍历查找
+    // 1.先判断当前节点的左子节点是否为空,如果不为空,则递归后序查找,如果找到则返回.
+    // 2.如果没有找到,就判断当前节点的右子节点是否为空,如果不为空,则右递归后续查找,
+    //   如果找到就返回
+    // 3.否则就和当前节点进行比较如果是,则返回,否则返回null
     public HeroNode postOrderSearch(int no) {
         HeroNode resNode = null;
         if (this.left != null) {
@@ -244,20 +254,35 @@ class HeroNode {
      * 删除节点
      */
     // 删除节点
+    // 要求:
+    // 1)如果需要删除的节点是叶子节点,则删除该节点
+    // 2)如果删除的节点是非叶子节点,则删除该子树
+
+    // 思路:
+    //首先考虑如果树是空树,root,如果只有一个root节点,则等价于二叉树置空,然后才进行下边的操作:
+    // 1. 因为二叉树是单向的,所以我们的判断当前节点的子节点是否需要删除节点,
+    //    而不能去判断当前这个节点是不是需要删除节点
+    // 2. 如果当前节点的左子节点不为空,并且左子节点的no就是需要删除的节点,那么就将this.left=null.并return结束递归
+    // 3. 如果当前节点的右子节点不为空,并且右子节点的no就是需要删除的节点,那么就将this.right=null.并return结束递归
+    // 4. 如果第2步和第3步都没有删除节点,那么我们就需要向左子树递归删除
+    // 5. 如果第4步左子树递归删除节点.应该继续向右子树进行递归删除
+    //
+    // TODO 该删除方法,并没有平衡二叉树或者把后续节点替补在原来的节点上
     public void deleteNode(int no) {
-        if (this.left!=null && this.left.no == no) {
+
+        if (this.left != null && this.left.no == no) {
             this.left = null;
             return;
         }
-        if (this.right!=null && this.right.no == no) {
+        if (this.right != null && this.right.no == no) {
             this.right = null;
             return;
         }
         //
-        if (this.left!=null){
+        if (this.left != null) {
             this.left.deleteNode(no);
         }
-        if (this.right!=null){
+        if (this.right != null) {
             this.right.deleteNode(no);
         }
     }
