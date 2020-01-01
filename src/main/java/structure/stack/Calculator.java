@@ -1,5 +1,7 @@
 package structure.stack;
 
+import org.junit.Test;
+
 import java.util.Scanner;
 
 /**
@@ -22,7 +24,8 @@ import java.util.Scanner;
  * 5. 最后数栈只有一个数字,就是表达式的结果
  */
 public class Calculator { // 简单的中缀表达式
-    public static void main(String[] args) {
+    @Test
+    public  void test1() {
         // Scanner scanner = new Scanner(System.in);
         String expression = "70+2*6-4"; // 该数不能使用括号和两位数以上的计算
         // 创建两个栈,数栈,一个符号栈

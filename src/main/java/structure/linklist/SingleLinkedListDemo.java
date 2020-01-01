@@ -1,12 +1,14 @@
 package structure.linklist;
 
 import lombok.Getter;
+import org.junit.Test;
 
 import java.util.Stack;
 
 //单链表
 public class SingleLinkedListDemo {
-    public static void main(String[] args) {
+    @Test
+    public  void test1() {
         HeroNode node1 = new HeroNode(1, "宋江", "及时雨");
         HeroNode node2 = new HeroNode(2, "卢俊义", "玉麒麟");
         HeroNode node3 = new HeroNode(3, "吴用", "智多星");

@@ -1,5 +1,7 @@
 package structure.array;
 
+import org.junit.Test;
+
 /**
  * 稀疏数组
  * 当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。
@@ -12,7 +14,8 @@ package structure.array;
  * 因为二维数组的很多值是默认值0. 因此记录了很多没有意义的数据 -> 稀疏素组
  */
 public class SparseArray {
-    public static void main(String[] args) {
+    @Test
+    public  void test1() {
         // 创建原始二维数组
         int[][] chessArr = createChessArr();
         System.out.println("原始的二维数组");
@@ -32,7 +35,7 @@ public class SparseArray {
     }
 
     // 创建原始二维数组
-    private static int[][] createChessArr() {
+    private  int[][] createChessArr() {
         // 创建一个原始的二维数组 11*11
         // 0: 表示没有子,1表示黑子 2 表示蓝子
         int[][] chessArr = new int[11][11];
@@ -43,7 +46,7 @@ public class SparseArray {
     }
 
     // 遍历二维数组
-    public static void show(int[][] arr){
+    public  void show(int[][] arr){
         for (int[] row : arr) {
             for (int data : row) {
                 System.out.printf("%d\t", data);
@@ -55,7 +58,7 @@ public class SparseArray {
     // 1.遍历元素的二维数组,得到有效数据的个数sun
     // 2.根据sun就可创建稀疏数组sparseArr[sun+1][3]
     // 3.将二维数组的有效数据存入稀疏数组中
-    public static int[][] toParseArray(int[][] chessArr){
+    public  int[][] toParseArray(int[][] chessArr){
         // 将二维数组 转稀疏数组的思路
         // 1. 先遍历二维数组得到非0的个数
         int sum = 0;
@@ -89,7 +92,7 @@ public class SparseArray {
     //稀疏数组转二维数组的思路
     // 1.先读取到稀疏数组的第一行,根据第一行的数据,创建原始二维数组arr2[11][11]
     // 2.再读取稀疏数组后几行的数据,并赋给原始的二维数组即可
-    public static int[][] toArray(int[][] sparseArr){
+    public  int[][] toArray(int[][] sparseArr){
         int[][] chess = new int[sparseArr[0][0]][sparseArr[0][1]];
         for (int i = 1; i < sparseArr.length; i++) {
             chess[sparseArr[i][0]][sparseArr[i][1]] = sparseArr[i][2];

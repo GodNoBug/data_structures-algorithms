@@ -1,5 +1,7 @@
 package structure.stack;
 
+import org.junit.Test;
+
 import javax.xml.crypto.Data;
 import java.util.Scanner;
 
@@ -17,7 +19,8 @@ public class ArrayStackDemo {
     // 2.定义一个top来表示栈顶,初始化为-1
     // 3.入栈的操作.当有数据加入到栈时,top++;stack[top]=data;
     // 4.出栈的操作. int value = stack[top] ,return value;
-    public static void main(String[] args) {
+    @Test
+    public  void test1() {
         ArrayStack stack =new ArrayStack(4);
         String key = "";
         boolean loop =true;

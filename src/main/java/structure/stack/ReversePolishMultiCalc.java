@@ -1,5 +1,7 @@
 package structure.stack;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -189,8 +191,8 @@ public class ReversePolishMultiCalc {
         return result;
 
     }
-
-    public static void main(String[] args) {
+    @Test
+    public  void test1() {
         //String math = "9+(3-1)*3+10/2";
         String math = "12.8 + (2 - 3.55)*4+10/5.0";
         try {

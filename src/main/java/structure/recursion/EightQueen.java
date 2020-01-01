@@ -1,5 +1,7 @@
 package structure.recursion;
 
+import org.junit.Test;
+
 /**
  * 八皇后问题介绍
  *      八皇后问题，是一个古老而著名的问题，是回溯算法的典型案例。该问题是国际西洋棋棋手马克斯·贝瑟尔于1848年提出：
@@ -19,7 +21,9 @@ public class EightQueen {
     private int max = 8;                    //共有多少个皇后
     private int[] array = new int[max];     //保存八皇后位置的结果,比如{0 , 4, 7, 5, 2, 6, 1, 3}
     private static int count =0;
-    public static void main(String[] args) {
+
+    @Test
+    public  void test1() {
         EightQueen queen =new EightQueen();
         queen.check();
         System.out.println("一共有多少种解法:"+count);

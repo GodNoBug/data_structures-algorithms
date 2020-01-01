@@ -1,6 +1,7 @@
 package structure.linklist;
 
 import lombok.Getter;
+import org.junit.Test;
 
 //双向链表
 // 单向链表的缺陷:
@@ -10,7 +11,8 @@ import lombok.Getter;
 //   temp是待删除节点的前一个节点
 //
 public class DoubleLinkedListDemo {
-    public static void main(String[] args) {
+    @Test
+    public  void test1() {
         System.out.println("双向链表测试");
         HeroNode2 node1 = new HeroNode2(1, "宋江", "及时雨");
         HeroNode2 node2 = new HeroNode2(2, "卢俊义", "玉麒麟");

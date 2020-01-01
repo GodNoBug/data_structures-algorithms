@@ -1,5 +1,7 @@
 package structure.stack;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -12,7 +14,8 @@ import java.util.Stack;
  * 例如: (3+4)×5-6 对应的后缀表达式就是 3 4 + 5 × 6 - , 针对后缀表达式求值步骤如下:
  */
 public class PolandNotation {
-    public static void main(String[] args) {
+    @Test
+    public  void test1() {
         // 完成将一个中缀表达式转后缀表达式的功能
         // 1. 1+((2+3)*4)-5 => 转成 1 2 3 + 4 * + 5 -
         // 2.TODO 对Str操作(扫描)不方便,因此现将中缀表达式转成对应的list,再对list进行遍历
@@ -38,7 +41,7 @@ public class PolandNotation {
     }
 
     // 将中缀表达式转成对应的list 1+((2+3)*4)-5
-    private static List<String> toInfixExpression(String expression) {
+    private  List<String> toInfixExpression(String expression) {
         List<String> list = new ArrayList<>();
         int i = 0; // 指针,用于遍历中缀表达式字符串
         String str;// 对于多位数的拼接工作
@@ -61,7 +64,7 @@ public class PolandNotation {
     }
 
     // 将一个逆波兰表达式,依次将数据和运算符 放入到ArrayList中
-    public static List<String> getListString(String expression) {
+    public  List<String> getListString(String expression) {
         // 将表达式分割
         String[] split = expression.split(" ");
         List<String> list = new ArrayList<>();
@@ -92,7 +95,7 @@ public class PolandNotation {
      * 8)依次弹出s2中的元素并输出，结果的逆序即为中缀表达式对应的后缀表达式
      */
     //将得到的中缀表达式对应的List => 后缀表达式对应的List
-    public static List<String> parseSuffixExpressionList(List<String> list) {
+    public  List<String> parseSuffixExpressionList(List<String> list) {
         // 初始化栈:
         Stack<String> s1 = new Stack<>(); // 符号栈
         // Stack<String> s2 =new Stack<>(); // 存放中间结果的栈,因为s2这个栈在整个转换过程中没有pop的操作,而且后面还需要逆序输出,太麻烦.完全可以用ArrayList来替代
@@ -138,7 +141,7 @@ public class PolandNotation {
      * 5)将6入栈；
      * 6)最后是-运算符，计算出35-6的值，即29，
      */
-    public static int calculate(List<String> list) {
+    public  int calculate(List<String> list) {
         // 创建一个栈,只需要一个栈即可
         Stack<String> stack = new Stack<>();
         for (String str : list) {

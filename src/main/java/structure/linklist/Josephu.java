@@ -2,6 +2,7 @@ package structure.linklist;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.junit.Test;
 
 // 单向环形链表
 //  Josephu (约瑟夫、约瑟夫环)问题为：
@@ -14,7 +15,8 @@ import lombok.Setter;
 //        k=1,从第编号为1的人报数(开始从1报数)
 //        m=2,数2下
 public class Josephu {
-    public static void main(String[] args) {
+    @Test
+    public  void test1() {
         CycleSingleLinkList list = new CycleSingleLinkList();
         list.addBoy(5);
         list.showBoy();

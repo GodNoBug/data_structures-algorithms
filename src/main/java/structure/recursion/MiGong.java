@@ -1,8 +1,11 @@
 package structure.recursion;
 
+import org.junit.Test;
+
 // 二维数组模拟迷宫
 public class MiGong {
-    public static void main(String[] args) {
+    @Test
+    public  void test1() {
         //先创建一个二维数组模拟迷宫地图 8行7列
         int[][] map = new int[8][7];//[][] 其中，声明语句的第一个方括号可以称为行数组，第二个方括号可以称为列数组。
         //使用 1 表示墙 上下全部置为1

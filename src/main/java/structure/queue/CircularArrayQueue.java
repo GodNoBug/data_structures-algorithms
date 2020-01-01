@@ -1,5 +1,7 @@
 package structure.queue;
 
+import org.junit.Test;
+
 import java.util.Scanner;
 
 /**
@@ -28,7 +30,8 @@ import java.util.Scanner;
  *      (cq.rear + cq.maxSize – cq.front) % cq.maxSize
  */
 public class CircularArrayQueue {
-    public static void main(String[] args) {
+    @Test
+    public  void test1(String[] args) {
         System.out.println("");
         CircularArray arrayQueue = new CircularArray(4);//有效数据最多为3
         char key = ' ';

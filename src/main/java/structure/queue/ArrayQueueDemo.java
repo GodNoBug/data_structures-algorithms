@@ -1,11 +1,13 @@
 package structure.queue;
 
 import lombok.AllArgsConstructor;
+import org.junit.Test;
 
 import java.util.Scanner;
 
 public class ArrayQueueDemo {
-    public static void main(String[] args) {
+    @Test
+    public  void test1() {
         ArrayQueue arrayQueue = new ArrayQueue(3);
         char key = ' ';
         Scanner scanner = new Scanner(System.in);

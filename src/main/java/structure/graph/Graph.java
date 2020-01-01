@@ -1,6 +1,7 @@
 package structure.graph;
 
 import lombok.Data;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +24,8 @@ public class Graph {
     private int[][] edges;                  // 存储图对应的邻接矩阵,表示顶点之间相邻关系的矩阵
     private int numOfEdges;                 // 表示边的数目
 
-    public static void main(String[] args) {
+    @Test
+    public  void test1() {
         int n = 5; //节点的个数
         Graph graph = new Graph(n);
         // 添加顶点
